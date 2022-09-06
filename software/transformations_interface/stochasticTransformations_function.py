@@ -2,7 +2,6 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.signal import get_window
 import sys, os
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../models/'))
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), '../transformations/'))
@@ -52,7 +51,7 @@ def main (inputFile='../../sounds/rain.wav', stocf=0.1, timeScaling = np.array([
 	plt.subplot(4,1,2)
 	numFrames = int(mYst[:,0].size)
 	frmTime = H*np.arange(numFrames)/float(fs)                             
-	binFreq = np.arange(stocf*H)*float(fs)/(stocf*2*H)                      
+	binFreq = np.arange(int(stocf*H))*float(fs)/(stocf*2*H)                      
 	plt.pcolormesh(frmTime, binFreq, np.transpose(mYst))
 	plt.autoscale(tight=True)
 	plt.xlabel('time (sec)')
@@ -63,7 +62,7 @@ def main (inputFile='../../sounds/rain.wav', stocf=0.1, timeScaling = np.array([
 	plt.subplot(4,1,3)
 	numFrames = int(ystocEnv[:,0].size)
 	frmTime = H*np.arange(numFrames)/float(fs)                             
-	binFreq = np.arange(stocf*H)*float(fs)/(stocf*2*H)                      
+	binFreq = np.arange(int(stocf*H))*float(fs)/(stocf*2*H)                      
 	plt.pcolormesh(frmTime, binFreq, np.transpose(ystocEnv))
 	plt.autoscale(tight=True)
 	plt.xlabel('time (sec)')
