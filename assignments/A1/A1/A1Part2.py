@@ -1,7 +1,3 @@
-import sys
-import os
-sys.path.append('../../software/models/')
-sys.path.append('D:\\project2\\sms-tools\\software\\models')
 from utilFunctions import wavread
 
 """
@@ -16,6 +12,8 @@ point values returned as a tuple.
 If you run your code using oboe-A4.wav as the input, the function should return the following output:  
 (-0.83486432, 0.56501967)
 """
+
+
 def minMaxAudio(inputFile):
     """
     Input:
@@ -23,11 +21,11 @@ def minMaxAudio(inputFile):
     Output:
         A tuple of the minimum and the maximum value of the audio samples, like: (min_val, max_val)
     """
-    ## Your code here
     _, x = wavread(inputFile)
 
     return min(x), max(x)
 
+
 if __name__ == '__main__':
-	result = minMaxAudio("D:\\project2\\sms-tools\\sounds\\oboe-A4.wav")
-	print(result)
+    result = minMaxAudio("D:\\project2\\sms-tools\\sounds\\oboe-A4.wav")
+    print(result)

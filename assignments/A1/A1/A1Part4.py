@@ -1,7 +1,3 @@
-import sys
-import os
-sys.path.append('../../software/models/')
-sys.path.append('D:\\project2\\sms-tools\\software\\models')
 from utilFunctions import wavread, wavwrite
 from A1Part3 import hopSamples
 
@@ -20,13 +16,13 @@ How could we avoid damaging the signal when downsampling it?
 You can find some related information in https://en.wikipedia.org/wiki/Decimation_%28signal_processing%29.
 """
 
+
 def downsampleAudio(inputFile, M):
     """
     Inputs:
         inputFile: file name of the wav file (including path)
         	M: downsampling factor (positive integer)
     """
-    ## Your code here
     fs, x = wavread(inputFile)
     down_x = hopSamples(x, M)
     wavwrite(down_x, int(fs/16), "D:\\project2\\sms-tools\\sounds\\vibraphone-C6_downsampled.wav")

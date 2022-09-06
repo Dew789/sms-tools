@@ -1,8 +1,9 @@
-import sys
-import os
-sys.path.append('../../software/models/')
-sys.path.append('D:\\project2\\sms-tools\\software\\models')
 from utilFunctions import wavread
+# import sys
+# import os
+# BASE_DIR = os.path.abspath(
+#     os.path.join(os.path.abspath(__file__), "../../../.."))
+# sys.path.append(os.path.join(BASE_DIR, r"software\models"))
 
 """
 A1-Part-1: Reading an audio file
@@ -24,6 +25,7 @@ array([-0.06213569, -0.04541154, -0.02734458, -0.0093997 ,  0.00769066, 0.023194
 0.04309214, 0.04626606,  0.0441908], dtype=float32)
 """
 
+
 def readAudio(inputFile):
     """
     Input:
@@ -31,11 +33,10 @@ def readAudio(inputFile):
     Output:
         The function should return a numpy array that contains 10 samples of the audio.
     """
-    ## Your code here
     fs, x = wavread(inputFile)
-    
+
     return x[50000: 50010]
+
 
 if __name__ == '__main__':
     result = readAudio("D:\\project2\\sms-tools\\sounds\\piano.wav")
-    print(result)
